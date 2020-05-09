@@ -1,5 +1,49 @@
 import numpy as np
 
+
+def somme(_A, _B, _C):
+    return _A + _B + _C
+
+
+def volumeSphere(_rayon):
+    return 4 / 3 * np.pi * pow(_rayon, 3)
+
+
+def compterMots(_chaine):
+    mots = _chaine.split()
+    for x in mots:
+        nbX = _chaine.count(x)
+        print("Le mot", x, "est présent", nbX, "fois dans la chaîne", _chaine)
+
+
+def est_email(_email):
+    _arrobas = 0
+    _suffixe = 0
+    for x in _email:
+        if _arrobas == 1 and _suffixe == 4:
+            _suffixe = 0
+
+        if _suffixe == 0 and x == '@':
+            _arrobas = 1
+
+        if _arrobas == 1 and x == '.' and _suffixe == 0:
+            _suffixe = 1
+
+        if _arrobas == 1 and x == 'c' and _suffixe == 1:
+            _suffixe = 2
+
+        if _arrobas == 1 and x == 'o' and _suffixe == 2:
+            _suffixe = 3
+
+        if _arrobas == 1 and x == 'm' and _suffixe == 3:
+            _suffixe = 4
+
+    if _arrobas == 1 and _suffixe == 4:
+        return 1
+    else:
+        return 0
+
+
 print("Hello World ! Let's start the work with first question.")
 
 ### PREMIER BREAKPOINT
@@ -29,13 +73,13 @@ print("**** EXERCICE 4 ****")
 mot1 = str(input("Saisissez un mot :"))
 mot2 = str(input("Saisissez un autre mot :"))
 if mot1 > mot2:
-    print(mot1,"est plus 'gros' que", mot2)
+    print(mot1, "est plus 'gros' que", mot2)
 elif mot2 > mot1:
     print(mot2, "est plus 'gros' que", mot1)
 else:
-    print("Les deux mots", mot1,"sont les mêmes !")
-print(mot1,"est représenté par la valeur",id(mot1))
-print(mot2,"est représenté par la valeur",id(mot2))
+    print("Les deux mots", mot1, "sont les mêmes !")
+print(mot1, "est représenté par la valeur", id(mot1))
+print(mot2, "est représenté par la valeur", id(mot2))
 
 # Exo 5
 print("**** EXERCICE 5 ****")
@@ -56,42 +100,20 @@ else:
 # Exo 6
 print("**** EXERCICE 6 ****")
 mailAddr = str(input("Veuillez saisir une adresse email valide de type .com"))
-strLength = len(mailAddr)
-arrobas = 0
-suffixe = 0
-for x in mailAddr:
-    if arrobas == 1 and suffixe == 4:
-        suffixe = 0
-
-    if suffixe == 0 and x == '@':
-        arrobas = 1
-
-    if arrobas == 1 and x == '.' and suffixe == 0:
-        suffixe = 1
-
-    if arrobas == 1 and x == 'c' and suffixe == 1:
-        suffixe = 2
-
-    if arrobas == 1 and x == 'o' and suffixe == 2:
-        suffixe = 3
-
-    if arrobas == 1 and x == 'm' and suffixe == 3:
-        suffixe = 4
-
-if arrobas == 1 and suffixe == 4:
+if est_email(mailAddr) == 1:
     print("Valid email address")
 else:
     print("Invalid email address")
 
 # Exo 7
 print("**** EXERCICE 7 ****")
-for x in range(0,10):
-    print("Bonjour numero",x)
+for x in range(0, 10):
+    print("Bonjour numero", x)
 
 # Exo 8
 print("**** EXERCICE 8 ****")
 monMot = "ShortWord"
-print(monMot,":")
+print(monMot, ":")
 for x in monMot:
     print(x)
 
@@ -100,7 +122,7 @@ print("**** EXERCICE 9 ****")
 a = 0
 b = 10
 while a < b:
-    print("Value of a is",a)
+    print("Value of a is", a)
     a += 1
 
 # Exo 10
@@ -108,18 +130,18 @@ print("**** EXERCICE 10 ****")
 while b > 0:
     b -= 1
     if (b % 2) == 1:
-        print("Value of b is",b)
+        print("Value of b is", b)
 
 # Exo 11
 print("**** EXERCICE 11 ****")
 value = int(input("Veuillez saisir une valeur comprise entre 1 et 10 :"))
-while not(1 <= value <= 10):
+while not (1 <= value <= 10):
     value = int(input("Veuillez saisir une valeur comprise entre 1 et 10 :"))
 
 # Exo 12
 print("**** EXERCICE 12 ****")
 maChaine = "ChaqueCaractere"
-print(maChaine,":")
+print(maChaine, ":")
 for x in maChaine:
     print(x)
 
@@ -130,7 +152,7 @@ for x in maListe:
 
 # Exo 13
 print("**** EXERCICE 13 ****")
-for x in range(1,15):
+for x in range(1, 15):
     if (x % 3) == 0:
         print(x)
 
@@ -142,7 +164,7 @@ while value < 15:
         print(value)
     value += 1
 
-for x in range(1,15):
+for x in range(1, 15):
     if (x % 2) == 0:
         print(x)
 
@@ -169,7 +191,7 @@ for x in maListe:
         index17 = currIndex
     currIndex += 1
 
-print("17 est a la position",index17)
+print("17 est a la position", index17)
 
 print("Sans la valeur 38")
 maListe.remove(38)
@@ -201,7 +223,7 @@ print("**** EXERCICE 16 ****")
 maChaine = "ruojnoB"
 print("Chaine initiale :", maChaine)
 newChaine = ""
-for x in range(len(maChaine)-1, -1, -1):
+for x in range(len(maChaine) - 1, -1, -1):
     newChaine = newChaine + maChaine[x]
 
 print("Chaine finale :", newChaine)
@@ -284,3 +306,42 @@ except:
 ### Quatrième Breakpoint
 # Exo 21
 print("**** EXERCICE 21 ****")
+x = int(input("Veuillez saisir un nombre (assez petit c'est mieux):"))
+file = open("record.txt", "w+")
+stringList = []
+for y in range(0, x):
+    currStr = str(input("Veuillez saisir une chaine :"))
+    stringList.append(currStr)
+
+for y in stringList:
+    file.write(y + "\n")
+
+file.close()
+
+# Exo 22
+print("**** EXERCICE 22 ****")
+file = open("record.txt", "r")
+content = file.readlines()
+for x in content:
+    if len(x) > 0:
+        if est_email(x.rstrip("\n")) == 1:
+            print(x, "is a valid email address")
+        else:
+            print(x, "is an invalid email address")
+
+file.close()
+
+# Exo 23
+print("**** EXERCICE 23 ****")
+strGiven = str(input("Veuillez saisir une chaine :"))
+compterMots(strGiven)
+
+# Exo 24
+print("**** EXERCICE 24 ****")
+rayonGiven = float(input("Veuillez saisir un rayon (flottant) :"))
+print("Le volume de la sphere est", volumeSphere(rayonGiven))
+
+# Exo 25
+print("**** EXERCICE 25 ****")
+myTuple = (4, 6, 10)
+print("La somme du tuple 4, 6, 10 est", somme(*myTuple))
