@@ -1,9 +1,14 @@
-# Il manque la mise a jour des valeurs via le clic du bouton CLEAN, a retravailler si le temps est suffisant
+# coding: utf-8
 
 from tkinter import *
+from tkinter.messagebox import *
 
 def updateValues():
-    print("test clic value",value)
+    if askyesno('Oups !', 'Il semblerait que ce bouton ne serve a rien !'):
+        showwarning('Oui', 'Tant pis...')
+    else:
+        showinfo('Non', 'Et pourtant il semblerait que si...')
+        showerror("Private Joke", "Même si c'est dommage :x")
 
 
 fenetre = Tk()
