@@ -25,7 +25,9 @@ if file_check(fileName) == 1:
         firstValue = get_firstValue(maCollection[x].rstrip("\n"))
         secondValue = get_firstValue(maCollection[x + 1].rstrip("\n"))
         if firstValue < secondValue:
-            print("La ligne", x, "possède la première valeur suivante", firstValue)
+            print("Ligne", x,": OUI")
+        else:
+            print("Ligne", x,": NON")
 
     file.close()
 else:
